@@ -2,7 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nenu.dao.UserDao">
+<!--登录-->
     <select id="u_login" resultType="com.nenu.domain.User">
         select * from user where username=#{username} and password = #{password}
     </select>
+<!--注册-->
+    <insert id="u_register" parameterType="com.nenu.domain.User">
+       insert into user (username,password,gender,age) values (#{username},#{password},#{gender},#{age})
+    </insert>
+<!--    查找所有-->
+    <select id="findAll" resultType="com.nenu.domain.User">
+        select * from user;
+    </select>
+<!--    根据用户名查找-->
+    <select id="findByName" resultType="com.nenu.domain.User">
+        select * from user where username=#{username}
+    </select>
+<!--    删除-->
+    <delete id="u_delete" parameterType="com.nenu.domain.User">
+        delete from user where uid=#{uid}
+    </delete>
+<!--    更新-->
+    <update id="u_update" parameterType="com.nenu.domain.User">
+        update user set username=#{username},password=#{password},gender=#{gender},age=#{age}
+        where uid=#{uid}
+    </update>
 </mapper>

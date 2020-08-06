@@ -11,6 +11,16 @@
     <title>Title</title>
 </head>
 <body>
-<img src="checkCode" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">
+<form action="u_login" method="post">
+    <input type="text" name="username"/>
+    <input type="text" name="password"/>
+    <input type="submit" value="提交"/>
+</form>
+<a href="register.jsp">注册</a>
+<%--<form action="test" method="post">--%>
+<%--    <input type="text" name="code">--%>
+<%--    <img src="checkCode" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">--%>
+<%--    <input type="submit" value="确定">--%>
+<%--</form>--%>
 </body>
 </html>

@@ -17,9 +17,9 @@ import java.util.List;
 
 @Controller
 public class UserController {
-
     @Autowired
     private IUserService userService;
+
     /**
      * 获取生成验证码显示到 UI 界面
      * @param request
@@ -63,4 +63,28 @@ public class UserController {
         }
         return mv;
     }
+
+    //注册
+    @RequestMapping(value = "/u_register")
+    public String register(User user){
+        //无该用户可以注册
+        if (user!=null){
+            userService.u_register(user);
+//            跳转
+            return "success";
+        }
+        else{
+            return "error";
+        }
+    }
+//    @RequestMapping("/test")
+//    public String test(String code,HttpSession session){
+//        String randomCode = (String) session.getAttribute(RANDOMCODEKEY);
+//        if (code.equals(randomCode)){
+//            return "success";
+//        }
+//        else {
+//            return "error";
+//        }
+//    }
 }
